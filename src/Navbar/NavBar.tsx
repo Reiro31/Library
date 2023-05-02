@@ -6,13 +6,6 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand link-light" to="/">
-            <img
-              src="./src/assets/logo.png"
-              alt="Logo"
-              width="30"
-              height="30"
-              className="d-inline-block align-text-top mx-2"
-            />
             E-books
           </Link>
           <button
