@@ -123,3 +123,12 @@ export const selectRentedBooks: Selector<RootState, BooksState> =
       return rentedBooks;
     }
   );
+
+export const selectBooksByName = (name: string): Selector<RootState, Book[]> =>
+  createSelector(
+    (state: RootState) => state.library,
+    (books: Book[]) =>
+      books.filter((book: Book) =>
+        book.title.toLowerCase().includes(name.toLowerCase())
+      )
+  );

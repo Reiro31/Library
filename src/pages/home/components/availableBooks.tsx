@@ -1,9 +1,15 @@
-import { useCallback } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { bookRented, selectAllBooks } from '../../../store/books';
+import {
+  bookRented,
+  selectAllBooks,
+  selectBooksByName,
+} from '../../../store/books';
 
 function AvailableBooks() {
-  const books = useSelector(selectAllBooks);
+  const [searchTerm, setSearchTerm] = useState('');
+  const books = useSelector(selectBooksByName(searchTerm));
   const dispatch = useDispatch();
   const rentBook = useCallback(
     (isbn: string) => {
@@ -14,6 +20,21 @@ function AvailableBooks() {
 
   return (
     <>
+      <form className="mb-3 m-2" onSubmit={(e) => e.preventDefault()}>
+        <h1 className="mb-3">Are you looking for a specific book?</h1>
+        <label htmlFor="searchBox" className="visually-hidden">
+          Search books by name
+        </label>
+        <input
+          style={{ maxWidth: '40vw' }}
+          className="form-control"
+          type="text"
+          id="searchBox"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </form>
       <h1 className="m-2">Currenly available</h1>
       <div className="d-flex flex-wrap justify-content-start m-3 available-books-container">
         {books.map((book) => (
