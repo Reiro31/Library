@@ -26,7 +26,7 @@ function AvailableBooks() {
           Search books by name
         </label>
         <input
-          style={{ maxWidth: '40vw' }}
+          style={{ maxWidth: '60vw' }}
           className="form-control"
           type="text"
           id="searchBox"

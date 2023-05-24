@@ -51,7 +51,7 @@ function BooksForm() {
   return (
     <>
       <h1>Add a new book</h1>
-      <div className="m-2" style={{ width: '40vh' }}>
+      <div className="m-2" style={{ width: '50vw' }}>
         <form
           onSubmit={handleSubmit((data) => {
             onSubmit(data);
